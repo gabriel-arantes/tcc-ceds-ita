@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "🚀 CONFIGURAÇÃO DO REPOSITÓRIO GITHUB"
+echo "====================================="
+
+echo ""
+echo "📋 INSTRUÇÕES PARA CRIAR O REPOSITÓRIO:"
+echo ""
+echo "1. Acesse https://github.com/new"
+echo "2. Nome do repositório: pneumonia-mortality-analysis"
+echo "3. Descrição: Análise de Mortalidade por Pneumonia e Vinculação Probabilística usando dados DATASUS"
+echo "4. Marque como 'Public' ou 'Private' conforme preferir"
+echo "5. NÃO inicialize com README, .gitignore ou license (já temos)"
+echo "6. Clique em 'Create repository'"
+echo ""
+
+echo "🔗 APÓS CRIAR O REPOSITÓRIO, EXECUTE:"
+echo ""
+echo "git remote add origin https://github.com/SEU_USUARIO/pneumonia-mortality-analysis.git"
+echo "git branch -M main"
+echo "git push -u origin main"
+echo ""
+
+echo "✅ REPOSITÓRIO LOCAL PRONTO!"
+echo "   - Commit inicial realizado"
+echo "   - Arquivos organizados"
+echo "   - .gitignore configurado"
+echo "   - README.md completo"
+echo ""
+
+echo "📊 ESTATÍSTICAS DO PROJETO:"
+echo "   - 11 arquivos commitados"
+echo "   - 2,559 linhas de código"
+echo "   - Notebook completo com análise"
+echo "   - Pipeline de ingestão funcional"
+echo "   - Módulos organizados"
