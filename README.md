@@ -81,7 +81,11 @@ pneumonia-mortality-analysis/
 │       ├── resumo_analise.json      # Resumo completo em JSON
 │       ├── estatisticas_principais.csv # Estatísticas principais
 │       ├── top_municipios.csv       # Top municípios por casos
-│       └── relatorio_analise_final.md # Relatório completo
+│       ├── relatorio_analise_final.md # Relatório completo
+│       ├── metadados_dados_agregados.md # Metadados dos dados
+│       ├── sim_*.csv                # Dados agregados do SIM
+│       ├── sih_*.csv                # Dados agregados do SIH
+│       └── linkage_*.csv            # Dados agregados de vinculação
 ├── pyproject.toml                   # Configuração Poetry
 ├── .gitignore
 └── README.md

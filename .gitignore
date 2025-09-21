@@ -86,3 +86,6 @@ data/_resultados/*.gz
 
 # Keep only aggregated results
 !data/resultados_agregados/
+
+# Scripts de processamento (não enviar para repo)
+scripts/
