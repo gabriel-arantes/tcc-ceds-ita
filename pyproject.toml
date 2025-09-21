@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pneumonia-mortality-analysis"
+version = "0.1.0"
+description = "Análise de mortalidade por pneumonia com vinculação probabilística"
+authors = ["Gabriel <gabriel@example.com>"]
+readme = "README.md"
+packages = [{include = "pneumonia_analysis"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.14"
+pysus = "^1.0.0"
+recordlinkage = "^0.16"
+pandas = "^2.0.0"
+numpy = "^1.24.0"
+fastparquet = "^2023.10.1"
+jupyter = "^1.0.0"
+matplotlib = "^3.7.0"
+seaborn = "^0.12.0"
+plotly = "^5.15.0"
+ipywidgets = "^8.0.0"
+tqdm = "^4.64.0"
+scipy = "^1.10.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+black = "^23.0.0"
+flake8 = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
