@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "data_analise": "2025-09-21",
+    "periodo": "2022-2024",
+    "ufs": ["SP", "RJ", "DF", "MG"],
+    "versao_pipeline": "1.0.0"
+  },
+  "estatisticas_gerais": {
+    "sim_obitos": 86915,
+    "sih_altas": 91286,
+    "municipios_sim": 1564,
+    "municipios_sih": 1697,
+    "pares_vinculados": 340449,
+    "total_pares": 2325055,
+    "taxa_vinculacao": 0.1464
+  },
+  "distribuicao_temporal": {
+    "sim_por_ano": {
+      "2022": 42741,
+      "2023": 44174
+    },
+    "sih_por_ano": {
+      "2022": 29161,
+      "2023": 29371,
+      "2024": 32754
+    }
+  },
+  "perfil_demografico": {
+    "sexo": {
+      "F": 43922,
+      "M": 42989,
+      "I": 4
+    },
+    "faixa_etaria": {
+      "<1": 642,
+      "1-4": 328,
+      "5-14": 212,
+      "15-24": 431,
+      "25-44": 3084,
+      "45-59": 7128,
+      "60-74": 19711,
+      "75+": 55302
+    },
+    "escolaridade": {
+      "sem_info": 3174,
+      "analfabeto": 12344,
+      "1a4_incompleta": 20282,
+      "4a_serie_completa": 22217,
+      "5a8_serie": 14924,
+      "superior_incompleto": 5671,
+      "ignorado": 8303
+    }
+  },
+  "top_municipios": [
+    {"mun6": "355030", "obitos": 12713, "altas": 7199, "total": 19912},
+    {"mun6": "330455", "obitos": 9576, "altas": 6628, "total": 16204},
+    {"mun6": "310620", "obitos": 1580, "altas": 1299, "total": 2879},
+    {"mun6": "351880", "obitos": 1301, "altas": 1086, "total": 2387},
+    {"mun6": "530010", "obitos": 1295, "altas": 1064, "total": 2359}
+  ],
+  "qualidade_vinculacao": {
+    "score_minimo": 1.646,
+    "score_maximo": 3.000,
+    "score_medio": 1.974,
+    "score_mediano": 1.926,
+    "desvio_padrao": 0.281
+  },
+  "distribuicao_scores": {
+    "1.64-1.92": 133924,
+    "1.92-2.19": 164333,
+    "2.19-2.46": 14506,
+    "2.46-2.73": 7319,
+    "2.73-3.00": 20367
+  }
+}

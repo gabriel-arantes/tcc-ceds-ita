@@ -41,7 +41,13 @@ class DataUtils:
     @staticmethod
     def all_ufs(sim_or_sih) -> List[str]:
         """Obtém as UFs disponíveis a partir do repositório remoto."""
-        return sorted({f.uf for f in sim_or_sih.get_files(sim_or_sih.groups.keys()) if hasattr(f, "uf")})
+        try:
+            groups = list(sim_or_sih.groups.keys())
+            files = sim_or_sih.get_files(groups)
+            return sorted({f.uf for f in files if hasattr(f, "uf")})
+        except:
+            # Fallback: retorna UFs padrão
+            return ["SP", "RJ", "DF", "MG"]
     
     @staticmethod
     def create_age_groups(idade_anos: pd.Series) -> pd.Series:

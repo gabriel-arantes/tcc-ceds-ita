@@ -5,7 +5,7 @@ Pipeline principal de análise de mortalidade por pneumonia
 import pandas as pd
 from pathlib import Path
 from typing import List, Optional, Dict, Any
-from pysus.online_data.IBGE import IBGE
+from pysus import IBGEDATASUS
 from .sim_processor import SIMProcessor
 from .sih_processor import SIHProcessor
 from .linkage import ProbabilisticLinker
@@ -93,22 +93,52 @@ class PneumoniaAnalysisPipeline:
         period = f"{year_start}-{year_end}"
         
         try:
-            # Busca dados da tabela SIDRA 6579 (população municipal)
-            sidra = IBGE.get_sidra_table(6579, territorial_level=6, period=period)
+            # Usa IBGEDATASUS para buscar dados de população
+            ibge = IBGEDATASUS()
+            ibge.load()
             
-            # Normaliza nomes das colunas
-            col_geo = "D1C" if "D1C" in sidra.columns else "Município (Código)"
-            col_year = "D2N" if "D2N" in sidra.columns else "Ano"
-            col_val = "V" if "V" in sidra.columns else "Valor"
+            frames = []
+            for year in self.years:
+                try:
+                    # Busca dados de população por município
+                    files = ibge.get_files('POP', year=year)
+                    if files:
+                        downloaded_files = ibge.download(files, local_dir=str(self.cache_dir))
+                        for file_path in downloaded_files:
+                            try:
+                                # Tenta ler como parquet primeiro
+                                if str(file_path).endswith('.parquet'):
+                                    df = pd.read_parquet(file_path)
+                                else:
+                                    # Tenta ler como CSV com diferentes separadores
+                                    try:
+                                        df = pd.read_csv(file_path, sep=';', encoding='latin-1')
+                                    except:
+                                        df = pd.read_csv(file_path, sep=',', encoding='utf-8')
+                                
+                                if not df.empty:
+                                    frames.append(df)
+                            except Exception as file_error:
+                                print(f"    Erro ao ler arquivo {file_path}: {file_error}")
+                                continue
+                except Exception as e:
+                    print(f"  Erro ao carregar população {year}: {e}")
+                    continue
             
-            # Cria DataFrame padronizado
-            population = pd.DataFrame({
-                "mun6": self.utils.mun_to6(sidra[col_geo]),
-                "ano": pd.to_numeric(sidra[col_year], errors="coerce").astype(int),
-                "pop": pd.to_numeric(sidra[col_val], errors="coerce")
-            })
-            
-            return population.dropna()
+            if frames:
+                population = pd.concat(frames, ignore_index=True)
+                # Normaliza para o formato esperado
+                if 'CODMUNICIPIO' in population.columns:
+                    population['mun6'] = self.utils.mun_to6(population['CODMUNICIPIO'])
+                if 'ANO' in population.columns:
+                    population['ano'] = pd.to_numeric(population['ANO'], errors='coerce')
+                if 'POPULACAO' in population.columns:
+                    population['pop'] = pd.to_numeric(population['POPULACAO'], errors='coerce')
+                
+                return population[['mun6', 'ano', 'pop']].dropna()
+            else:
+                print("Nenhum dado de população encontrado")
+                return pd.DataFrame(columns=["mun6", "ano", "pop"])
             
         except Exception as e:
             print(f"Erro ao carregar dados de população: {e}")
