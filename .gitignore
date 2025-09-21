@@ -77,3 +77,12 @@ poetry.lock
 data/_resultados/*.png
 data/_resultados/*.jpg
 data/_resultados/*.jpeg
+
+# Large data files (keep only aggregated results)
+data/_resultados/*.parquet
+data/_resultados/*.csv
+data/_resultados/*.zip
+data/_resultados/*.gz
+
+# Keep only aggregated results
+!data/resultados_agregados/
