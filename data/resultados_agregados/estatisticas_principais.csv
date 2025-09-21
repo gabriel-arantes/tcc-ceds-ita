@@ -1,0 +1,23 @@
+metrica,valor,descricao
+sim_obitos,86915,Total de óbitos por pneumonia no SIM (2022-2023)
+sih_altas,91286,Total de altas por óbito no SIH (2022-2024)
+municipios_sim,1564,Número de municípios com dados no SIM
+municipios_sih,1697,Número de municípios com dados no SIH
+pares_vinculados,340449,Número de pares vinculados entre SIM e SIH
+total_pares,2325055,Total de pares analisados na vinculação
+taxa_vinculacao,14.64,Taxa de vinculação em percentual
+score_medio,1.974,Score médio dos matches
+score_mediano,1.926,Score mediano dos matches
+obitos_2022,42741,Óbitos em 2022
+obitos_2023,44174,Óbitos em 2023
+altas_2022,29161,Altas em 2022
+altas_2023,29371,Altas em 2023
+altas_2024,32754,Altas em 2024
+perc_feminino,50.5,Percentual de casos femininos
+perc_75_mais,63.7,Percentual de casos em idosos (75+ anos)
+perc_analfabeto,14.2,Percentual de casos analfabetos
+perc_1a4_incompleta,23.3,Percentual com 1ª a 4ª série incompleta
+perc_4a_serie_completa,25.6,Percentual com 4ª série completa
+perc_5a8_serie,17.2,Percentual com 5ª a 8ª série
+perc_superior_incompleto,6.5,Percentual com superior incompleto
+perc_ignorado_escolaridade,9.6,Percentual com escolaridade ignorada

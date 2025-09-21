@@ -47,7 +47,6 @@ cache/
 data/raw/
 data/processed/
 *.parquet
-*.csv
 *.zip
 *.gz
 
@@ -83,6 +82,10 @@ data/_resultados/*.parquet
 data/_resultados/*.csv
 data/_resultados/*.zip
 data/_resultados/*.gz
+
+# Ignore CSV files in most directories (except resultados_agregados)
+*.csv
+!data/resultados_agregados/*.csv
 
 # Keep only aggregated results
 !data/resultados_agregados/

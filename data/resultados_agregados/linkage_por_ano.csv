@@ -1,0 +1,5 @@
+,match,match,score,score,score,score,score,taxa_vinculacao
+,count,sum,mean,median,std,min,max,
+ano,,,,,,,,
+2022,1132358,162742,1.975,1.926,0.282,1.646,3.0,14.37
+2023,1192697,177707,1.974,1.926,0.281,1.646,3.0,14.9
